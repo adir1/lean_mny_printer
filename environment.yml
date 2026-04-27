@@ -1,0 +1,26 @@
+name: lean-mny-printer
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - jupyter
+  - jupyterlab
+  - ipykernel
+  - ipywidgets
+  - pandas
+  - numpy
+  - scipy
+  - scikit-learn
+  - matplotlib
+  - plotly
+  - seaborn
+  - python-dateutil
+  - requests
+  - pytz
+  - pip
+  - pip:
+    - lean
+    - black
+    - flake8
+    - pytest

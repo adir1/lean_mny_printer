@@ -1,4 +1,7 @@
 {
-    "python.pythonPath": "/Users/adir1/git/lean_mny_printer/.venv/bin/python3",
-    "python.languageServer": "Pylance"
+    "python.defaultInterpreterPath": "${workspaceFolder}/../miniforge3/envs/lean-mny-printer/bin/python",
+    "python.languageServer": "Pylance",
+    "jupyter.kernels.trusted": [
+        "/Users/adir1/git/lean_mny_printer"
+    ]
 }

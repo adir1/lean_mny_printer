@@ -7,7 +7,6 @@
     "ms-toolsai.jupyter-renderers",
     "ms-toolsai.data-wrangler",
     "ms-python.debugpy",
-    "GitHub.copilot",
     "bierner.markdown-mermaid",
     "executablebookproject.myst-highlight"
   ]

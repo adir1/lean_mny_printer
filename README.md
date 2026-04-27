@@ -4,27 +4,21 @@ A Python-based quantitative trading analysis project using the **LEAN engine** t
 
 ## Prerequisites
 
-- **Python 3.11+** (installed on your system)
-- **uv** (Python package manager and environment tool)
+- **Miniforge** (minimal conda distribution with conda-forge)
 - **VS Code** (recommended IDE)
 - **Git** (version control)
 
-### Install uv
+### Install Miniforge
 
-If you don't have `uv` installed, install it from [astral.sh/uv](https://astral.sh/uv):
+If you don't have Miniforge installed, download it from [miniforge.pydata.org](https://github.com/conda-forge/miniforge):
 
 **macOS (via Homebrew):**
 ```bash
-brew install uv
+brew install miniforge
+conda init zsh  # or bash, depending on your shell
 ```
 
-**Or install via pip:**
-```bash
-pip install uv
-```
-
-**Or download directly:**
-Visit https://astral.sh/uv for other installation methods.
+Or download the installer directly from the repository.
 
 ## Quick Start
 
@@ -35,30 +29,23 @@ git clone <repository-url>
 cd lean_mny_printer
 ```
 
-### 2. Set Up Python Environment with uv
+### 2. Set Up Python Environment with Miniforge
 
-**Create and activate a virtual environment:**
-
-```bash
-uv venv --python 3.11
-source .venv/bin/activate  # On macOS/Linux
-# or
-.venv\Scripts\activate     # On Windows
-```
-
-### 3. Install Dependencies
+**Create and activate the conda environment:**
 
 ```bash
-uv pip install -r requirements.txt
+conda env create -f environment.yml
+conda activate lean-mny-printer
 ```
 
-This installs:
-- **QuantConnect LEAN** - Backtesting engine
+This creates a conda environment with:
+- **LEAN** - Backtesting engine (from conda-forge)
 - **Jupyter** - Interactive notebooks
 - **Data tools** - pandas, numpy, scipy, scikit-learn
 - **Visualization** - matplotlib, plotly, seaborn
+- **Development tools** - black, flake8, pytest
 
-### 4. Open in VS Code
+### 3. Open in VS Code
 
 ```bash
 code .
@@ -66,11 +53,16 @@ code .
 
 **VS Code will prompt you to install recommended extensions** (Jupyter, Python, Pylance, Data Wrangler, Copilot, etc.). Click "Install All" to set up your IDE.
 
-### 5. Start Experimenting
+After extensions are installed, **select the conda kernel**:
+- Open the command palette (`Cmd+Shift+P` on macOS)
+- Search for "Python: Select Interpreter"
+- Choose the `lean-mny-printer` environment
+
+### 4. Start Experimenting
 
 **Open `research.ipynb`** in VS Code:
 - Click on the notebook file
-- Select the Python kernel (should auto-detect your `.venv`)
+- The Python kernel should auto-detect your conda environment
 - Run cells to analyze trading strategies
 
 ## Project Structure
@@ -81,10 +73,10 @@ lean_mny_printer/
 ├── config.json                # Algorithm configuration
 ├── research.ipynb             # Jupyter notebook for analysis
 ├── copilot-instructions.md    # AI assistant instructions
-├── requirements.txt           # Python dependencies
+├── environment.yml            # Conda environment specification
 ├── .vscode/
 │   └── extensions.json        # Recommended VS Code extensions
-└── .venv/                     # Virtual environment (created by uv)
+└── .venv/                     # (Not used - conda handles environments)
 ```
 
 ## Usage
@@ -93,7 +85,7 @@ lean_mny_printer/
 
 1. **Activate environment** (if not already active):
    ```bash
-   source .venv/bin/activate
+   conda activate lean-mny-printer
    ```
 
 2. **Start Jupyter Lab:**
@@ -103,7 +95,7 @@ lean_mny_printer/
 
 3. **Or use VS Code's native Jupyter support:**
    - Open `research.ipynb` in VS Code
-   - Select your Python kernel
+   - Select the `lean-mny-printer` conda kernel
    - Run cells
 
 ### Running the Algorithm
@@ -198,13 +190,13 @@ class MyAlgorithm(QCAlgorithm):
 
 ```bash
 # Activate environment
-source .venv/bin/activate
+conda activate lean-mny-printer
 
 # Add new dependency
-uv pip install <package>
+conda install -c conda-forge <package>
 
-# Update dependencies
-uv pip install -r requirements.txt --upgrade
+# Update environment
+conda env update -f environment.yml
 
 # Run Jupyter Lab
 jupyter lab
@@ -213,38 +205,40 @@ jupyter lab
 # (Open .ipynb file directly in VS Code)
 
 # List installed packages
-uv pip list
+conda list
 
 # Deactivate environment
-deactivate
+conda deactivate
 ```
 
 ## Troubleshooting
 
 **"Python not found"**
-- Ensure Python 3.11+ is installed: `python3 --version`
-- Use `uv venv --python 3.11` to specify the version
+- Ensure Miniforge is installed and initialized: `conda --version`
+- Verify conda shell integration: `conda init zsh` (or your shell)
 
 **"Module not found" in Jupyter**
-- Verify the kernel uses your `.venv`: Click kernel selector in VS Code
-- Reinstall dependencies: `uv pip install -r requirements.txt`
+- Verify the kernel uses your conda environment: Click kernel selector in VS Code, choose `lean-mny-printer`
+- Reinstall dependencies: `conda env update -f environment.yml`
 
-**QuantConnect/LEAN import errors**
-- Install LEAN CLI: `pip install lean-cli` (may be required for full functionality)
-- Reinstall quantconnect: `uv pip install --force-reinstall quantconnect`
+**LEAN import errors**
+- Ensure LEAN is installed: `conda list | grep lean`
+- Update environment: `conda env update -f environment.yml --prune`
 
 **Jupyter not opening**
-- Ensure Jupyter is installed: `uv pip install jupyter`
+- Ensure environment is activated: `conda activate lean-mny-printer`
+- Verify Jupyter is installed: `conda list | grep jupyter`
 - Check kernel: `jupyter kernelspec list`
 
 ## Next Steps
 
-1. ✅ Install `uv` and set up environment
-2. ✅ Install dependencies from `requirements.txt`
+1. ✅ Install Miniforge
+2. ✅ Create conda environment from `environment.yml`
 3. ✅ Open project in VS Code
-4. ✅ Open `research.ipynb` and run analysis
-5. 🔄 Modify algorithms in `main.py` or notebook
-6. 📊 Analyze performance metrics
+4. ✅ Select conda kernel in VS Code
+5. ✅ Open `research.ipynb` and run analysis
+6. 🔄 Modify algorithms in `main.py` or notebook
+7. 📊 Analyze performance metrics
 7. (Optional) Install LEAN CLI for advanced features
 
 ---
