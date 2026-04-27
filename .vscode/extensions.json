@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-toolsai.jupyter",
+    "ms-toolsai.jupyter-keymap",
+    "ms-toolsai.jupyter-renderers",
+    "ms-toolsai.data-wrangler",
+    "ms-python.debugpy",
+    "GitHub.copilot",
+    "bierner.markdown-mermaid",
+    "executablebookproject.myst-highlight"
+  ]
+}
