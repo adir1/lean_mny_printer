@@ -1,0 +1,27 @@
+{
+	"servers": {
+		"massive": {
+			"type": "stdio",
+			"command": "uv",
+			"args": [
+				"tool",
+				"run",
+				"--from",
+				"mcp_massive@git+https://github.com/massive-com/mcp_massive@v0.9.1",
+				"mcp_massive"
+			],
+			"env": {
+				"MASSIVE_API_KEY": "${input:MASSIVE_API_KEY}",
+				"HOME": "/Users/adir1"
+			}
+		}
+	},
+	"inputs": [
+		{
+			"id": "MASSIVE_API_KEY",
+			"type": "promptString",
+			"description": "Your Massive.com API key",
+			"password": true
+		}
+	]
+}

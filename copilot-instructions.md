@@ -17,7 +17,7 @@ This is a **LEAN-based quantitative trading analysis project** built in Python u
 
 - **Package Manager**: Miniforge (conda with conda-forge channel)
 - **Environment File**: `environment.yml`
-- **Python Version**: 3.11
+- **Python Version**: 3.12
 - **LEAN Package**: Installed via conda-forge (not PyPI)
 
 To activate the environment:

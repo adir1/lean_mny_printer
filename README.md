@@ -13,6 +13,7 @@ A Python-based quantitative trading analysis project using the **LEAN engine** t
 If you don't have Miniforge installed, download it from [miniforge.pydata.org](https://github.com/conda-forge/miniforge):
 
 **macOS (via Homebrew):**
+
 ```bash
 brew install miniforge
 conda init zsh  # or bash, depending on your shell
