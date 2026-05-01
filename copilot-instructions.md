@@ -184,3 +184,4 @@ When working on this project, the agent should:
 **Last Updated**: April 26, 2026
 **Project Type**: LEAN Quantitative Trading Analysis (Python)
 **Primary Goal**: Analyze alpha, drawdown, and risk/reward metrics for market algorithms
+
