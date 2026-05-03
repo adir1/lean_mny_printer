@@ -245,3 +245,8 @@ conda deactivate
 ---
 
 **Happy backtesting! 📈**
+
+## Other Quant Tools
+
+https://github.com/wilsonfreitas/awesome-quant
+
